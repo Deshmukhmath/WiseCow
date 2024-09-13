@@ -25,11 +25,21 @@ jobs:
         docker push arundeshmukhmath/wisecow:latest
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
-    - name: Deploy to Kubernetes
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Kubeconfig
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+
+    - name: List directory contents
+      run: ls -al
+
+    - name: Apply Kubernetes manifests
       run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
