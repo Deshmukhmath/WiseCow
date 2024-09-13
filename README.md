@@ -1,1 +1,1 @@
-# WiseCow
+# WiseCow Application
