@@ -1,4 +1,4 @@
-How the script works:
+**How the script works:**
 
 Configuration: Set up the source directory to back up, S3 bucket name, remote directory in the bucket, and AWS region.
 
@@ -8,7 +8,7 @@ Backup Function: backup_directory() walks through the source directory and uploa
 
 Main Function: main() logs the start time, performs the backup, logs the end time, and calculates the duration.
 
-Customization:
+**Customization:**
 
 Remote Storage: If you're using a different cloud storage provider or remote server, you will need to adjust the upload logic accordingly. For example, you might use paramiko for SFTP backups or an API for another cloud provider.
 
