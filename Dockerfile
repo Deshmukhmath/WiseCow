@@ -1,20 +1,19 @@
 FROM alpine:latest
 
-# Install necessary packages, including cpanminus for CPAN modules
-RUN apk add --no-cache fortune bash ncurses netcat-openbsd perl perl-app-cpanminus && \
-    cpanm App::cowsay
+# Install required packages
+RUN apk add --no-cache cowsay fortune bash ncurses netcat-openbsd
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the wisecow file to the /app directory
+# Copy the wisecow script into the container
 COPY wisecow /app/wisecow
 
-# Make sure the wisecow script is executable
+# Make the script executable
 RUN chmod +x /app/wisecow
 
-# Expose the required port
+# Expose the port the app will run on
 EXPOSE 4499
 
-# Set the default command to run the wisecow script
+# Run the wisecow application
 CMD ["/app/wisecow"]
