@@ -1,19 +1,14 @@
-FROM alpine:latest
+# Step 1: Use a base image with a shell environment
+FROM ubuntu:latest
 
-# Install required packages
-RUN apk add --no-cache cowsay fortune bash ncurses netcat-openbsd
-
-# Set the working directory
+# Step 2: Set the working directory
 WORKDIR /app
 
-# Copy the wisecow script into the container
-COPY wisecow /app/wisecow
+# Step 3: Copy the shell script and any other necessary files into the container
+COPY wisecow.sh /app/
 
-# Make the script executable
-RUN chmod +x /app/wisecow
+# Step 4: Ensure the script has execution permissions
+RUN chmod +x wisecow.sh
 
-# Expose the port the app will run on
-EXPOSE 4499
-
-# Run the wisecow application
-CMD ["/app/wisecow"]
+# Step 5: Set the command to run the script
+CMD ["./wisecow.sh"]
