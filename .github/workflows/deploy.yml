@@ -21,8 +21,8 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t deshmukhmath/wisecow:latest .
-        docker push deshmukhmath/wisecow:latest
+        docker build -t arundeshmukhmath/wisecow:latest .
+        docker push arundeshmukhmath/wisecow:latest
 
   deploy:
     needs: build
