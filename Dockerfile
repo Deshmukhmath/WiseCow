@@ -1,8 +1,8 @@
 FROM alpine:latest
 
-# Install necessary packages (cowsay, fortune, etc.) via an alternative method
-RUN apk add --no-cache fortune bash ncurses netcat-openbsd perl && \
-    cpan install App::cowsay
+# Install necessary packages, including cpanminus for CPAN modules
+RUN apk add --no-cache fortune bash ncurses netcat-openbsd perl perl-app-cpanminus && \
+    cpanm App::cowsay
 
 # Set the working directory
 WORKDIR /app
