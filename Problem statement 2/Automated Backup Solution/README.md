@@ -8,7 +8,7 @@
 
 **Main Function**: main() logs the start time, performs the backup, logs the end time, and calculates the duration.
 
-### Customization:**
+### Customization:
 
 **Remote Storage**: If you're using a different cloud storage provider or remote server, you will need to adjust the upload logic accordingly. For example, you might use paramiko for SFTP backups or an API for another cloud provider.
 
