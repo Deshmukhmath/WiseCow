@@ -8,10 +8,10 @@ RUN apk add --no-cache cowsay fortune bash ncurses netcat-openbsd
 WORKDIR /app
 
 
-COPY wisecow /app/wisecow
+COPY wisecow /wisecow
 
 
-RUN chmod +x /app/wisecow
+RUN chmod +x /wisecow
 
 
 EXPOSE 4499
